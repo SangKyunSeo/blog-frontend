@@ -1,0 +1,16 @@
+.container{
+  position: relative;
+  height: 110px;
+  background-color: #eff7ed;
+  display: flex;
+  justify-content: center;
+}
+
+.container > p{
+  display: flex;
+  flex-direction: column;
+  color: #808080;
+  font-size: 14px;
+  text-align: center;
+  justify-content: center;
+}

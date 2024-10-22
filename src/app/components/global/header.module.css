@@ -1,0 +1,41 @@
+.container{
+  display: flex;
+}
+
+.container > .title {
+  display: flex;
+  width: 60%;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.title > a{
+  text-decoration: none;
+  color: black;
+}
+
+.blogTitle{
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.menu{
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #808080;
+}
+
+.menu a:hover{
+  font-weight: bold;
+  color: black;
+}
