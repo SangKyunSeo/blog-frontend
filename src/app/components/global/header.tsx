@@ -1,6 +1,10 @@
+'use client';
+
 import Link from 'next/link';
 import style from './header.module.css';
 import Image from 'next/image';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 export default function Header() {
 	const blogTitle = "Sangkyun's blog";
