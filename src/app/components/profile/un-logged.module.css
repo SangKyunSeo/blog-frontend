@@ -1,0 +1,21 @@
+.container{
+  width: 60%;
+  text-align: center;
+}
+
+.welcomComment{
+  font-size: 20px;
+  font-weight: bold;
+  color: #c8a2fa;
+  padding-bottom: 10px;
+}
+
+.loginButton{
+  cursor: pointer;
+  font-style: italic;
+}
+
+.loginButton:hover{
+  font-weight: bold;
+}
+

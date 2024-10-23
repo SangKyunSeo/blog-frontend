@@ -2,9 +2,6 @@
 
 import Link from 'next/link';
 import style from './header.module.css';
-import Image from 'next/image';
-import axios from 'axios';
-import { useEffect } from 'react';
 
 export default function Header() {
 	const blogTitle = "Sangkyun's blog";
@@ -15,8 +12,6 @@ export default function Header() {
 				<Link href={'/'}>
 					<span className={style.blogTitle}>{blogTitle}</span>
 				</Link>
-				<Image src={''} />
-				<span>이름</span>
 			</div>
 			<div className={style.menu}>
 				<Link href={'/'}>Tech</Link>
