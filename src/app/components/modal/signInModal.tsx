@@ -3,15 +3,20 @@
 import { loginAction } from '@/app/actions/user/login-action';
 import { useCookies } from 'next-client-cookies';
 import React, { useState } from 'react';
-import style from './loginModal.module.css';
+import style from './signInModal.module.css';
 
-export default function LoginModal(props: loginModalProps) {
+export default function SignInModal(props: loginModalProps) {
 	const [userId, setUserId] = useState('');
 	const [userPw, setUserPw] = useState('');
 	const cookie = useCookies();
 
 	const closeModal = () => {
-		props.setIsShow(false);
+		props.setIsSignInModal(false);
+	};
+
+	const showSignUpModal = () => {
+		props.setIsSignInModal(false);
+		props.setIsSignUpModal(true);
 	};
 
 	const login = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -24,17 +29,6 @@ export default function LoginModal(props: loginModalProps) {
 
 		try {
 			const { data } = await loginAction(userId, userPw);
-
-			const accessToken = data.accessToken;
-			const refreshToken = data.refreshToken;
-
-			cookie.set(
-				'token',
-				JSON.stringify({
-					accessToken: accessToken,
-					refreshToken: refreshToken,
-				}),
-			);
 
 			cookie.set('name', data.userName);
 			cookie.set('auth', data.userAuth.toString());
@@ -69,7 +63,11 @@ export default function LoginModal(props: loginModalProps) {
 					<button className={style.signInBtn} type="submit">
 						로그인
 					</button>
-					<button className={style.signUpBtn} type="button">
+					<button
+						className={style.signUpBtn}
+						type="button"
+						onClick={showSignUpModal}
+					>
 						회원가입
 					</button>
 				</form>
@@ -79,6 +77,7 @@ export default function LoginModal(props: loginModalProps) {
 }
 
 interface loginModalProps {
-	setIsShow: (value: boolean) => void;
+	setIsSignInModal: (value: boolean) => void;
 	setIsLogged: (value: boolean) => void;
+	setIsSignUpModal: (value: boolean) => void;
 }

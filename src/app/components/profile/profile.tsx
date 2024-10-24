@@ -4,26 +4,24 @@ import { useCookies } from 'next-client-cookies';
 import React, { useEffect, useState } from 'react';
 import Logged from './logged';
 import UnLogged from './un-logged';
-import { tokenInfo } from '@/types/token';
-import LoginModal from '../modal/signInModal';
+import SignInModal from '../modal/signInModal';
+import SignUpModal from '../modal/signUpModal';
 
 export default function Profile() {
 	const cookie = useCookies();
 
 	const [isLogged, setIsLogged] = useState(false);
 
-	const [isShow, setIsShow] = useState(false);
+	const [isSignInModal, setIsSignInModal] = useState(false);
+	const [isSignUpModal, setIsSignUpModal] = useState(false);
 
 	const userName = cookie.get('name') || null;
 
 	useEffect(() => {
-		const cookieToken = cookie.get('token') || null;
+		const accessToken = cookie.get('accessToken') || null;
 
-		if (cookieToken) {
-			const token: tokenInfo = JSON.parse(cookieToken);
-			if (token.accessToken != null) setIsLogged(true);
-			else setIsLogged(false);
-		}
+		if (accessToken != null) setIsLogged(true);
+		else setIsLogged(false);
 	}, []);
 
 	return (
@@ -32,12 +30,25 @@ export default function Profile() {
 				{isLogged ? (
 					<Logged userName={userName!} />
 				) : (
-					<UnLogged setIsShow={setIsShow} />
+					<UnLogged
+						setIsSignInModal={setIsSignInModal}
+						setIsSignUpModal={setIsSignUpModal}
+					/>
 				)}
 			</div>
 			<div>
-				{isShow && (
-					<LoginModal setIsShow={setIsShow} setIsLogged={setIsLogged} />
+				{isSignInModal && !isSignUpModal && (
+					<SignInModal
+						setIsSignInModal={setIsSignInModal}
+						setIsLogged={setIsLogged}
+						setIsSignUpModal={setIsSignUpModal}
+					/>
+				)}
+				{isSignUpModal && !isSignInModal && (
+					<SignUpModal
+						setIsSignUpModal={setIsSignUpModal}
+						setIsSignInModal={setIsSignInModal}
+					/>
 				)}
 			</div>
 		</div>

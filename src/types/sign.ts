@@ -11,3 +11,9 @@ export interface ResponseSignIn {
 	userProfileUrl: string;
 	userProfileName: string;
 }
+
+export interface RequestSignUp {
+	userId: string;
+	userPw: string;
+	userName: string;
+}

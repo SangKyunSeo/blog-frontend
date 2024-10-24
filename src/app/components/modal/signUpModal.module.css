@@ -1,0 +1,109 @@
+.container {
+  position: fixed; /* 고정 위치 */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+  display: flex; /* Flexbox 사용 */
+  justify-content: center; /* 수평 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+  z-index: 1000; /* 다른 요소 위에 표시되도록 */
+}
+
+.modal {
+  background-color: white; /* 모달 내부 색상 */
+  border-radius: 8px; /* 모서리 둥글기 */
+  padding: 20px; /* 내부 여백 */
+  width: 500px; /* 모달 너비 */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
+}
+
+.modal h1 {
+  margin-bottom: 20px; /* 제목 아래 여백 */
+}
+
+.modal input {
+  width: 90%; /* 입력 필드 너비 */
+  padding: 10px; /* 입력 필드 패딩 */
+  margin-bottom: 18px; /* 입력 필드 아래 여백 */
+  border: 1px solid #ccc; /* 테두리 색상 */
+  border-radius: 4px; /* 테두리 둥글기 */
+}
+
+.areaInputId{
+  display: flex;
+}
+
+.userInputArea{
+  width: 70%;
+  margin-bottom: 10px;
+}
+
+.userInputArea > input{
+  margin-bottom: 0;
+}
+
+.btnDupCheckArea{
+  width: 20%;
+}
+
+.idDupWarn{
+  color:red;
+  font-weight: bold;
+
+}
+
+.btnFailDup{
+  padding:8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #c8a2fa;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.btnFailDup:hover{
+  border: 1px solid skyblue;
+  color: blue;
+}
+
+.noHover:hover{
+  cursor: not-allowed; 
+}
+
+.btnSuccessDup{
+  padding:8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid green;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 8px;
+  color: green;
+}
+
+.modal button {
+  background-color: #c8a2fa; /* 버튼 배경 색상 */
+  color: black; /* 버튼 텍스트 색상 */
+  font-weight: bold;
+  padding: 10px; /* 버튼 패딩 */
+  border: none; /* 테두리 없음 */
+  border-radius: 4px; /* 테두리 둥글기 */
+  cursor: pointer; /* 커서 변경 */
+  
+}
+
+.modal button:hover {
+  background-color: #b175ff; /* 버튼 호버 시 색상 */
+}
+
+.btnGrp{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}

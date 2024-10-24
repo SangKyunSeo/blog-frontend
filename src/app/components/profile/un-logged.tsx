@@ -2,7 +2,8 @@ import style from './un-logged.module.css';
 
 export default function UnLogged(props: loginModalProps) {
 	const setShowModalState = () => {
-		props.setIsShow(true);
+		props.setIsSignInModal(true);
+		props.setIsSignUpModal(false);
 	};
 
 	return (
@@ -18,5 +19,6 @@ export default function UnLogged(props: loginModalProps) {
 }
 
 interface loginModalProps {
-	setIsShow: (value: boolean) => void;
+	setIsSignInModal: (value: boolean) => void;
+	setIsSignUpModal: (value: boolean) => void;
 }

@@ -12,8 +12,20 @@ const fetchExtend: ReturnFetch = args =>
 			},
 			response: async response => {
 				if (!response.ok) {
-					return response;
+					if (response.status === 401) {
+					} else {
+						return response;
+					}
 				}
+
+				const cookieList = response.headers
+					.getSetCookie()
+					.map(v => v.slice(0, v.indexOf(' ') - 1).split('='));
+
+				cookieList.forEach(cookie =>
+					cookies().set(cookie[0], cookie[1].toString()),
+				);
+
 				return response;
 			},
 		},
