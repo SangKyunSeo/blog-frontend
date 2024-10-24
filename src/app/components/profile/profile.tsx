@@ -16,6 +16,7 @@ export default function Profile() {
 	const [isSignUpModal, setIsSignUpModal] = useState(false);
 
 	const userName = cookie.get('name') || null;
+	const userAuth = Number(cookie.get('auth')) || 1;
 
 	useEffect(() => {
 		const accessToken = cookie.get('accessToken') || null;
@@ -28,7 +29,7 @@ export default function Profile() {
 		<div>
 			<div>
 				{isLogged ? (
-					<Logged userName={userName!} />
+					<Logged userName={userName!} userAuth={userAuth!} />
 				) : (
 					<UnLogged
 						setIsSignInModal={setIsSignInModal}

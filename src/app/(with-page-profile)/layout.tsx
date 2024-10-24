@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 import Profile from '../components/profile/profile';
 
 export default function Layout({ children }: { children: ReactNode }) {
+	
 	return (
 		<div>
 			<CookiesProvider>
