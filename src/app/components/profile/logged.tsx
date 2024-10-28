@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import style from './logged.module.css';
 
 export default function Logged(props: loggedProps) {
@@ -11,10 +12,16 @@ export default function Logged(props: loggedProps) {
 			</div>
 			{userAuth !== 1 ? (
 				<div className={style.masterMenu}>
-				<span className={style.writeBoard}>글작성</span>
-				<span className={style.configBlog}>블로그 관리</span>
-			</div>
-			): ''}
+					<Link href="/board/write">
+						<span className={style.writeBoard}>글작성</span>
+					</Link>
+					<Link href="/admin/blog">
+						<span className={style.configBlog}>블로그 관리</span>
+					</Link>
+				</div>
+			) : (
+				''
+			)}
 		</div>
 	);
 }

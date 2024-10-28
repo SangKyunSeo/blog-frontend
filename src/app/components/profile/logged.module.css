@@ -7,3 +7,30 @@
   font-size: 16px;
   font-weight: bold;
 }
+
+.writeBoard{
+  font-size: 14px;
+  color: #d55cfa;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.configBlog{
+  font-size: 14px;
+  color: #d55cfa;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.masterMenu{
+  padding-top: 10px;
+}
+
+.writeBoard:hover,.configBlog:hover{
+  font-weight: bold;
+}
+
+.masterMenu a{
+  text-decoration: none;
+  color: inherit;  
+}

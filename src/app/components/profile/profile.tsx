@@ -16,7 +16,9 @@ export default function Profile() {
 	const [isSignUpModal, setIsSignUpModal] = useState(false);
 
 	const userName = cookie.get('name') || null;
-	const userAuth = Number(cookie.get('auth')) || 1;
+	const userAuth = Number(cookie.get('auth'));
+	console.log('cookie에서 꺼내온 name ', userName);
+	console.log('cookie에서 꺼내온 auth ', userAuth);
 
 	useEffect(() => {
 		const accessToken = cookie.get('accessToken') || null;
